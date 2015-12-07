@@ -1,0 +1,52 @@
+<person>
+  <name git="okram">marko</name>
+  <name git="N/A">monstere sur la codebaz</name>
+  <name git="nokram">marko</name>
+  <age>29</age>
+  <knows>
+    <guy>vadas</guy>
+    <weight>0.5</weight>
+  </knows>
+  <knows>
+    <guy>josh</guy>
+    <weight>1.0</weight>
+  </knows>
+  <created>
+    <thing>lop</thing>
+    <lang>java</lang>
+    <weight>0.4</weight>
+  </created>
+</person>
+<person>
+  <name>vadas</name>
+  <name>sadav</name>
+  <age>27</age>
+</person>
+<project>
+  <name>lop</name>
+  <lang>java</lang>
+</project>
+<person>
+  <name>josh</name>
+  <age>32</age>
+  <created>
+    <thing>ripple</thing>
+    <weight>1.0</weight>
+  </created>
+  <created>
+    <thing>lop</thing>
+    <weight>0.4</weight>
+  </created>
+</person>
+<project>
+  <name>ripple</name>
+  <lang>java</lang>
+</project>
+<person>
+  <name>peter</name>
+  <age>35</age>
+  <created>
+    <thing>lop</thing>
+    <weight>0.2</weight>
+  </created>
+</person>
