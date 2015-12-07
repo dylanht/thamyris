@@ -1,0 +1,10 @@
+gremlin.graph=com.thinkaurelius.titan.core.TitanFactory
+storage.backend=cassandrathrift
+storage.cassandra.keyspace=tpclassic
+storage.hostname=localhost
+cache.db-cache=true
+cache.db-cache-clean-wait=20
+cache.db-cache-time=180000
+cache.db-cache-size=0.25
+index.search.hostname=localhost
+index.search.elasticsearch.client-only=true
