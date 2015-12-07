@@ -1,0 +1,17 @@
+gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
+gremlin.hadoop.graphInputFormat=org.apache.tinkerpop.gremlin.hadoop.structure.io.script.ScriptInputFormat
+gremlin.hadoop.graphOutputFormat=org.apache.hadoop.mapreduce.lib.output.NullOutputFormat
+gremlin.hadoop.memoryOutputFormat=org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat
+gremlin.hadoop.jarsInDistributedCache=true
+gremlin.hadoop.inputLocation=./tpclassic.xml
+gremlin.hadoop.scriptInputFormat.script=./script-tpclassic-xml.groovy
+
+#-- XmlRecordReader --#
+xmlinput.mode=true
+xmlinput.start=<project>
+xmlinput.end=</project>
+
+#-- Spark --#
+spark.master=local[4]
+spark.serializer=org.apache.spark.serializer.KryoSerializer
+spark.executor.memory=1g
