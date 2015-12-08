@@ -1,14 +1,13 @@
 # Thamyris
 The "Titanomachy" - a Greek tale of war in the heavens between the Titans and the Gods - was attributed to a blind Thracian bard named Thamyris (says Wikipedia). I often feel like a deaf-dumb-and-blind man trying to set up all this heavenly tech - could have used good ole' Thammy's third eye for this stuff many a time...
 
-## Bulk Loadin' with Multi-properties and Xml
+## Bulk Loading with multi-properties and Xml
 
 * **Pre-requisites**
 1)  Do this:
-  | Pre-requisite | Place that file from this repository into this directory in your incubator-tinkerpop source dir  |
-  | ------------- | --- |
-  | TitanBulkLoader | gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/bulkloading |
-  | ScriptRecordReader | hadoop-gremlin/src/main/java/org/apache/tinkerpop/gremlin/hadoop/structure/io/script |
+Pre-requisite | Place that file from this repository into this directory in your incubator-tinkerpop source dir -------------|--- 
+TitanBulkLoader | gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/bulkloading
+ScriptRecordReader | hadoop-gremlin/src/main/java/org/apache/tinkerpop/gremlin/hadoop/structure/io/script
 
 2) Rename [this file](https://github.com/dkuppitz/openflights/blob/master/src/main/java/com/datastax/openflights/OpenflightsBulkLoaderVertexProgram.java "OpenflightsBulkLoaderVertexProgram.java") to BulkLoaderVertexProgram.java, then do a search and replace in that file to replace all occurences of "OpenflightsBulkLoaderVertexProgram" with "BulkLoaderVertexProgram", then drop the file that results from that operation into gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/bulkloading in your incubator-tinkerpop source directory.
 3) Rebuild the TinkerPop3 suite with mvn clean install -DskipTests after making the above changes, and you should be ready to go (let me know if not and I'll see where I went wrong).
