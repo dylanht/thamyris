@@ -1,11 +1,11 @@
 # thamyris
 The "Titanomachy" - a Greek tale of war in the heavens between the Titans and the Gods - was attributed to a blind Thracian bard named Thamyris (says Wikipedia). I often feel like a deaf-dumb-and-blind man trying to set up all this heavenly tech - could use good ole' Thammy's third eye round these parts...
 
-## Bulk Loadin'
+## Bulk Loadin' with Multi-properties and XML
 
 Check out the repository that the Titan/TinkerPop guys just set up about data migration from TP2 and old Titan to TP3 and new Titan, which goes over how to use BulkLoaderVertexProgram with ScriptInputFormat to parse arbitrary file formats and load chunks of big files into your graph [using Hadoop/Spark or some such framework](https://github.com/dkuppitz/openflights "Openflights").
 
-Building on that, this repository tries to generalize the customizedOpenFlightsBulkLoader implementation over there which gives a particular property the right cardinality by recognizing it's name and hard-setting it in the parsing script - we take a baby step further here, and ask you to prepend either "set:" or "list:" to the property key if you desire a multi-property of that cardinality - so in the parsing script, which in this repo is the file `script-tpclassic-xml.groovy`, it goes like:
+Building on that, this repository tries to generalize the customized OpenFlightsBulkLoader implementation over there which gives a particular property the right cardinality by recognizing it's name and hard-setting it in the parsing script - we take a baby step further here, and ask you to prepend either "set:" or "list:" to the property key if you desire a multi-property of that cardinality - so in the parsing script, which in this repo is the file `script-tpclassic-xml.groovy`, it goes like:
 
 ```groovy
 // I want a set property
