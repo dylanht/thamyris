@@ -32,8 +32,8 @@ blvp = BulkLoaderVertexProgram.build().bulkLoader(TitanBulkLoader.class).interme
 graph.compute(SparkGraphComputer).program(blvp).submit().get()
 ```
 
-Check it out and let me know if it works - you should see something like this now in the REPL when you inspect the graph:
-
+You should see something like this now in the REPL when you inspect the graph. Notice how the namelist multi-properties and meta-properties are all there as per the XML input file, but the nameset property replaced the first <name> Xml element with the value "marko" when we addeed another "marko" - you can tell by comparing the meta-properties "okram" and "nokram" between the set/list respectively.
+a
 ```groovy
 gremlin> g.V().has("namelist", "marko").properties()
 00:43:23 WARN  com.thinkaurelius.titan.graphdb.transaction.StandardTitanTx  - Query requires iterating over all vertices [(namelist = marko)]. For better performance, use indexes
