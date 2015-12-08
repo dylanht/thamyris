@@ -1,5 +1,5 @@
 # Thamyris
-The "Titanomachy" - a Greek tale of war in the heavens between the Titans and the Gods - was attributed to a blind Thracian bard named Thamyris (says Wikipedia). I often feel like a deaf-dumb-and-blind man trying to set up all this heavenly tech - could have used good ole' Thammy's third eye for this stuff many a time...
+The "Titanomachy" - a Greek tale of war in the heavens between the Titans and the Gods - was attributed to a blind Thracian bard named Thamyris (says Wikipedia). I often feel like a deaf-dumb-and-blind man trying to set up all this heavenly tech - could have used Thammy's third eye for this stuff many a time...
 
 ## Bulk Loading with multi-properties and Xml
 
