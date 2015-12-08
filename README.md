@@ -13,19 +13,20 @@ v1.property(set, "set:mySetOfValues", oneSuchValue)
 // I want a list property
 v1.property(list, "list:myListOfValues", oneSuchValue)
 ```
-And then, in the gremlin REPL when you're bulk loading similar to [Chapter 32](http://s3.thinkaurelius.com/docs/titan/1.0.0/titan-hadoop-tp3.html "Titan Docs") in the Titan Documentation, it goes like:
+And then, in the gremlin REPL when you're bulk loading similar to [Chapter 32](http://s3.thinkaurelius.com/docs/titan/1.0.0/titan-hadoop-tp3.html "Titan Docs") in the Titan Documentation, you can do this to define the schema and load the data from the tpclassic.xml file all in one shot:
 
 ```groovy
+graph = TitanFactory.open('tpclassic.graph')
+graph.close()
+com.thinkaurelius.titan.core.util.TitanCleanup.clear(graph)
+graph = TitanFactory.open('tpclassic.graph')
+:load tinkerpop-classic-titan-schema.groovy
+defineTinkerPopClassicSchema(graph)
 hdfs.copyFromLocal('tpclassic.xml', 'data/tpclassic.xml')
 hdfs.copyFromLocal('script-tpclassic-xml.groovy', 'script-tpclassic-xml.groovy')
 graph = GraphFactory.open('tpclassic-load-projects.olap')
 blvp = BulkLoaderVertexProgram.build().bulkLoader(TitanBulkLoader.class).intermediateBatchSize(2).writeGraph('tpclassic.graph').create(graph)
 graph.compute(SparkGraphComputer).program(blvp).submit().get()
-```
-
-And then once more to load persons:
-
-```groovy
 graph = GraphFactory.open('tpclassic-load-persons.olap')
 blvp = BulkLoaderVertexProgram.build().bulkLoader(TitanBulkLoader.class).intermediateBatchSize(2).writeGraph('tpclassic.graph').create(graph)
 graph.compute(SparkGraphComputer).program(blvp).submit().get()
@@ -33,3 +34,24 @@ graph.compute(SparkGraphComputer).program(blvp).submit().get()
 
 Check it out and let me know if it works - you should see something like this now in the REPL when you inspect the graph:
 
+```groovy
+gremlin> g.V().has("namelist", "marko").properties()
+00:43:23 WARN  com.thinkaurelius.titan.graphdb.transaction.StandardTitanTx  - Query requires iterating over all vertices [(namelist = marko)]. For better performance, use indexes
+==>vp[bulkLoader.vertex.id->marko]
+==>vp[name->marko]
+==>vp[namelist->marko]
+==>vp[namelist->monstere sur la code]
+==>vp[namelist->marko]
+==>vp[nameset->marko]
+==>vp[nameset->monstere sur la code]
+==>vp[age->29]
+gremlin> g.V().has("namelist", "marko").properties().properties()
+00:43:26 WARN  com.thinkaurelius.titan.graphdb.transaction.StandardTitanTx  - Query requires iterating over all vertices [(namelist = marko)]. For better performance, use indexes
+==>p[git->okram]
+==>p[git->okram]
+==>p[git->N/A]
+==>p[git->nokram]
+==>p[git->nokram]
+==>p[git->N/A]
+gremlin> 
+```
